@@ -1,0 +1,49 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "base.html" %}
+{% block title %} NuTotally {% endblock %}
+{% block brandname %} NuTotally {% endblock %}
+{% block footerbrandname %} NuTotally {% endblock %}
+{% block copyrightname %} NuTotally {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="/static/static.css">
+<div class="container-fluid p-0">
+  <img src="/static/images/signup5.jpg" class="blurred-image" alt="">
+</div>
+<div>
+  <h1 class="text-center m-5">Sign up</h1>
+</div>
+<div class="text-center">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for category, message in messages %}
+      <div class="alert {{ category }}">{{ message }}</div>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</div>
+<div class="container mt-5 px-4">
+    <form method="post" action="{{ url_for('signup') }}">
+      {{ form.csrf_token }}
+      <div class="form-group p-2">
+        {{ form.name.label }}
+        {{ form.name(class_='form-control') }}
+      </div>
+        <div class="form-group p-2">
+          {{ form.email.label }}
+          {{ form.email(class_='form-control') }}
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group p-2">
+          {{ form.password.label }}
+          {{ form.password(class_='form-control') }}
+        </div>
+        <div class="form-group p-2">
+          {{ form.reenter_password.label }}
+          {{ form.reenter_password(class_='form-control') }}
+        </div> 
+        {{ form.submit(class_='btn btn-primary') }}
+      </form>
+</div>
+{% endblock%}

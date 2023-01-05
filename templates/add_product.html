@@ -1,0 +1,59 @@
+{% extends "admin_base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %} NuTotally {% endblock %}
+{% block brandname %} NuTotally {% endblock %}
+{% block footerbrandname %} NuTotally {% endblock %}
+{% block copyrightname %} NuTotally {% endblock %}
+{% block content %}
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-5">
+    <h2>Add Product</h2>
+    <div class="row">
+        <form action="" method="post" class="form form-control" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            <div class="card">
+                <div class="card-header important_font">
+                    Product Details
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        {{ form.title.label }}
+                        {{ form.title(class_='form-control') }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.description.label }}
+                        {{ form.description(class_='form-control') }}
+                    </div>
+                </div>
+            </div>
+            <div class="card my-2">
+                <div class="card-header important_font">
+                    Images
+                </div>
+                <div class="card-body">
+                    <input type="file" name="file">
+                </div>
+            </div>
+            <div class="card my-2">
+                <div class="card-header important_font">
+                    Price Details
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        {{ form.product_price.label }}
+                        {{ form.product_price(class_='form-control col-2') }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.product_cost.label }}
+                        {{ form.product_cost(class_='form-control col-2') }}
+                    </div>
+                </div>
+            </div>
+            <div class="my-2">
+                {{ form.submit(class_='btn btn-primary col-1') }}
+            </div>
+        </form>
+        {{ ckeditor.load() }}
+        {{ ckeditor.config(name='description') }}
+    </div>
+</main>
+{% endblock %}

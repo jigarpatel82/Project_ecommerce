@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} NuTotally {% endblock %}
+{% block brandname %} NuTotally {% endblock %}
+{% block footerbrandname %} NuTotally {% endblock %}
+{% block copyrightname %} NuTotally {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="/static/static.css">
+<div class="container-fluid mt-2 p-2">
+  <div class="row">
+    {% for product in products %}      
+    <div class="col-sm-2">
+      <div class="card">
+        <img class="card-img-top" src="data:{{ product.mimetype }};base64,{{ product.image_data.decode() }}" alt={{ product.title }}>
+        <div class="card-body">
+          <p class="cart-text"><a href="" class="links">{{ product.title }}</a></p>
+          <h6 class="mb-3 black-font">$&nbsp{{ product.product_price }}</h6>
+          <a class="btn btn-danger text-center justify-content-md-center" href="{{ url_for('add_to_cart', product_id=product.id) }}" type="submit">ADD TO CART</a>
+        </div>
+      </div>
+    </div>  
+    {% endfor %} 
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %} NuTotally {% endblock %}
+{% block brandname %} NuTotally {% endblock %}
+{% block footerbrandname %} NuTotally {% endblock %}
+{% block copyrightname %} NuTotally {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="/static/static.css">
+<!-- MAIN SECTION -->
+<div>
+  <a href="{{ url_for('products')}}">
+      <img src="/static/images/hero image resized.png" alt="" class="full-image">
+  </a>  
+</div>
+<!-- MAIN SECTION -->
+<!--MIDDLE SECTION-->
+<div class="content mb-0">
+<div class="container">
+  <div class="row">
+    <div class="col p-4">
+    <h2 class="display-5 text-white text-center">Shop with Ease</h2>
+      <span class="line text-center"></span>
+    <p class="text-white text-relaxed">Shop our premium collection of products with confidence as you get free shipping on orders over $100 and worry free returns. No questions asked!</p>
+    </div>
+    <div class="col ml-3 p-4">
+      <a href="{{ url_for('products')}}">
+        <img class="rounded-image" src="/static/images/middle section-1.jpg" alt="" height="500px">
+      </a>
+    </div>
+  </div>
+  <div class="row my-0">
+    <div class="col mr-3 p-4">
+      <a href="{{ url_for('products')}}">
+        <img class="rounded-image" src="/static/images/middle section-2.jpg" alt="" height="500px">
+      </a>
+    </div>
+    <div class="col p-4">
+    <h2 class="text-white text-center">Try us!</h2>
+      <span class="line text-center"></span>
+    <p class="text-white text-relaxed">Try shopping with us and refer friends to unveil amazing offers curated for you.</p>
+    </div>
+  </div>
+</div>
+</div>
+<!--MIDDLE SECTION-->
+<!--TESTIMONIAL SECTION-->
+<div class="content mt-0">
+<div class="container">
+  <div class="text-center mb-5 mt-0 pt-3">
+    <img class="" src="/static/images/quote_white.png" alt="">
+  </div>
+  <div class="px-5">
+    <blockquote class="lead">
+    <p class='px-5 text-center text-white'>
+      Heard about NuTotally from a friend and gave them a try. It was an amazing shopping experience from placing order till delivery. Beautiful collection. Thumbs up!
+    </p>
+    </blockquote>
+    <span class="line text-center"></span>
+    <h4 class="text-center text-white">Caroline Dike</h4>
+    <p class="font-weight-light mb-5">&nbsp</p>
+  </div>
+</div>
+</div>
+
+<!--TESTIMONIAL SECTION-->
+{% endblock %}

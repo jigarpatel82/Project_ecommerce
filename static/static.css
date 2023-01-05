@@ -1,0 +1,133 @@
+a{
+color: #eeeeee;
+}
+a:hover{
+    color: antiquewhite;
+    text-decoration: none;
+}
+body{
+background-color: #63696e;
+font-family: 'Poppins', sans-serif;
+font-weight: 200;
+color: #eeeeee;
+}
+
+.bold-large{
+    font-weight:900;
+    font-size: larger;
+}
+.bold{
+    font-weight: 400;
+}
+.checkout{
+    margin-left: 500px;
+}
+.important_font{
+font-weight: 500;
+font-size: 1.2rem;
+}
+
+.add-to-cart-button{
+    background-color: #dc3545;
+    color:#ffffff
+}
+.blue-button{
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.blurred-image{
+    opacity: 0.5;
+}
+.content{
+background-image: linear-gradient(135deg, #181b1d, #353236)
+}
+
+.footer-background-color{
+    background-color: #343a40;
+}
+.full-image{
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+.left-sidebar{
+    /* top: 0; */
+    position: sticky;
+    height: calc(100vh - 90px);
+}
+.links{
+text-decoration: none;
+color:#353236;
+}
+.black-font{
+    color: #353236;
+}
+.links:hover{
+text-decoration: none;
+}
+
+/* Testimonial line */
+.line{
+border-bottom: 4px solid #007bff;
+display:block;
+width:40px;
+margin:30px auto;
+border-radius:2px;
+}
+
+main{
+    margin-top: 60px;
+    margin-left: 50px;
+    padding:60px;
+}
+
+.nav-color:hover{
+color: red;
+}
+
+.rounded-image{
+border-radius: 10px;
+}
+.row{
+    margin-bottom: 0;
+}
+.sidebar{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    border-right: 1px solid black;
+    height: 100vh;
+    opacity: 0.9;
+    padding: 80px 0 0 10px;
+    /* background-color: rgb(98, 96, 96); */
+}
+
+.sidebar-tabs .nav-item .nav-link{
+    color: #eeeeee;
+}
+
+.small-text{
+    font-weight: 100;
+    font-size: medium;
+}
+
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+    border: none;
+}
+
+td #cart-table .table-content-center{
+    vertical-align: middle;
+}
+.text-relaxed{
+    letter-spacing: 3px;
+    line-height: 1.625;
+}
+

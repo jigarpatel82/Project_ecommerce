@@ -1,0 +1,40 @@
+{% extends "admin_base.html" %}
+{% block title %} NuTotally {% endblock %}
+{% block brandname %} NuTotally {% endblock %}
+{% block footerbrandname %} NuTotally {% endblock %}
+{% block copyrightname %} NuTotally {% endblock %}
+{% block content %}
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-5">
+    <div class="row">
+        <div class="col-10">
+            <h1>Products</h2>
+        </div>
+        <div class="col-2">
+            <a class="btn btn-primary" type="submit" href='{{ url_for("add_product") }}' >Add Product</a>
+        </div>
+    </div>
+    <div class="my-5 py-3">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Product Price</th>
+            <th scope="col">Product Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for product in product_data %}         
+                <tr>
+                    <th scope="row"><img src="data:{{ product.mimetype }};base64,{{ product.image_data.decode() }}"  alt="Product image" width="60px" height="60px"></th>
+                    <td>{{ product.title }}</td>
+                    <td>${{ "%.2f"|format(product.product_price) }}</td>
+                    <td>${{ "%.2f"|format(product.product_cost) }}</td>
+                    <td><a class="btn btn-primary" type="submit" href="{{ url_for('edit_product', product_id=product.id) }}" role="button">Edit</a>  <a class="btn btn-danger" type="submit" href="{{ url_for('delete_product', product_id=product.id) }}" role="button">Delete</a></td>
+                </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</main>
+{% endblock %}

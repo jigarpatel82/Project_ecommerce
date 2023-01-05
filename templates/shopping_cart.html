@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %} NuTotally {% endblock %}
+{% block brandname %} NuTotally {% endblock %}
+{% block footerbrandname %} NuTotally {% endblock %}
+{% block copyrightname %} NuTotally {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="/static/static.css">
+<div class="container">
+<div class="m-4 p-3">
+    <h2 class="text-center">Shopping Cart</h2>
+</div>
+<div>
+    <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center">ITEM(S)</th>
+            <th scope="col" class="text-center">QTY</th>
+            <th scope="col" class="text-center">PRICE</th>
+            <th scope="col" class="text-center">SUBTOTAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key, value in cart_items.items() %}
+          <tr>
+            <th scope="row" class="align-middle text-center"><img src="data:{{ key.mimetype }};base64,{{ key.image_data.decode() }}"  alt="Product image" width="90px" height="90px"><span class="ml-2">{{ key.title }}</span></th>
+            <td class="align-middle text-center"><span class="mr-3"><a href="{{ url_for('update_cart_remove', product_id=key.id) }}" class="bold-large" id="{{key.title + ' minus'}}"><img src="/static/images/- sign other.png" alt=""></a></span>{{ value }}<span class="ml-3"><a href="{{ url_for('update_cart_add', product_id=key.id) }}" id="{{key.title + ' plus'}}"><img src="/static/images/+ sign.png" alt=""></a></span></td>
+            <td class="align-middle text-center">{{ "%.2f"|format(key.product_price) }}</td>
+            <td class="align-middle text-center">{{ "%.2f"|format(value * key.product_price) }}</td>
+          </tr>
+          {% endfor %}
+          <tr>
+            <td></td>
+            <td></td>
+            <td scope="col" class="bold-large text-center">TOTAL</td>
+            <td class="text-center bold">{{ "%.2f"|format(total) }}</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td colspan="2" class="text-center">Free shipping for all orders over $100. <br> Free returns</td>
+            
+          </tr>
+          <tr>
+            <td class="align-middle text-center"><img src="/static/images/amex.png" alt="" width="30px" height="30px">
+              <img src="/static/images/mastercard.png" alt="" width="30px" height="30px">
+              <img src="/static/images/visa.png" alt="" width="30px" height="30px">
+              <img src="/static/images/paypal.png" alt="" width="30px" height="30px"></td>
+            <td></td>
+            <td></td>
+            <td><a class="btn btn-danger" href='{{ url_for("create_checkout_session") }}'>Checkout</a></td>
+          </tr>
+        </tbody>
+      </table>     
+</div>
+</div>
+<script src="/static/index.js"></script>
+{% endblock %}
